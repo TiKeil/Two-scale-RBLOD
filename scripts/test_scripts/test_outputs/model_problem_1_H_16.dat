@@ -1,0 +1,351 @@
+Launching job:
+
+Using MPI parallel run, make sure to use mpirun.
+00:02 [1mMPIPool[0m: Connected to 1024 ranks
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 1024 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 0.01
+
+Training set size per dimension:     50
+Training set size old stage 1:       50
+Training set size two-scale stage 1: 200
+
+prepare patches ... 
+
+approximating contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+ ................................................................................................................................................................................................................................................................ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss --> THIS TOOK 56.30057 seconds and requires ~760.84 MB
+
+ ................................................................................................................................................................................................................................................................ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss --> THIS TOOK 89.77989 seconds and requires ~605.30 MB
+
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722,     constant: 2.904812509863091
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+02:34 [1mweak_greedy[0m: Started greedy search on training set of size 50.
+02:34 [1mweak_greedy[0m: Estimating errors ...
+02:34 |   [1mRBSurrogate[0m: Reducing ...
+02:35 |   |   [1mResidualReductor[0m: Estimating residual range ...
+02:35 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector -1 ...
+02:35 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+02:35 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+02:36 [1mweak_greedy[0m: Maximum error after 0 extensions: 0.5429759853910519 (mu = {mu: [0.0]})
+02:36 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [0.0]} ...
+02:36 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [0.0]} ...
+02:37 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+02:37 |   [1mRBSurrogate[0m: Reducing ...
+02:37 |   |   [1mResidualReductor[0m: Estimating residual range ...
+02:37 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 0 ...
+02:39 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+02:39 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 3 again
+02:39 |   |   |   |   [1mgram_schmidt[0m: Removing linearly dependent vector 4
+02:39 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+02:40 [1mweak_greedy[0m: Estimating errors ...
+02:40 [1mweak_greedy[0m: Maximum error after 1 extensions: 1.3095752351501562 (mu = {mu: [4.4897959183673475]})
+02:40 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [4.4897959183673475]} ...
+02:40 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [4.4897959183673475]} ...
+02:41 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+02:41 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 1 again
+02:41 |   [1mRBSurrogate[0m: Reducing ...
+02:41 |   |   [1mResidualReductor[0m: Estimating residual range ...
+02:41 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 1 ...
+02:43 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+02:43 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 4 again
+02:43 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 5 again
+02:43 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 6 again
+02:44 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 7 again
+02:44 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+02:44 [1mweak_greedy[0m: Estimating errors ...
+02:44 [1mweak_greedy[0m: Maximum error after 2 extensions: 0.5480607032219464 (mu = {mu: [1.1224489795918369]})
+02:44 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [1.1224489795918369]} ...
+02:44 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [1.1224489795918369]} ...
+02:45 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+02:45 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 2 again
+02:45 |   [1mRBSurrogate[0m: Reducing ...
+02:46 |   |   [1mResidualReductor[0m: Estimating residual range ...
+02:46 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 2 ...
+02:48 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+02:48 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 8 again
+02:48 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 9 again
+02:48 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 10 again
+02:48 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 11 again
+02:48 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+02:49 [1mweak_greedy[0m: Estimating errors ...
+02:49 [1mweak_greedy[0m: Maximum error after 3 extensions: 0.1416356777569425 (mu = {mu: [1.9387755102040818]})
+02:49 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [1.9387755102040818]} ...
+02:49 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [1.9387755102040818]} ...
+02:50 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+02:50 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 3 again
+02:50 |   [1mRBSurrogate[0m: Reducing ...
+02:50 |   |   [1mResidualReductor[0m: Estimating residual range ...
+02:50 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 3 ...
+02:52 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+02:52 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 12 again
+02:53 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 13 again
+02:53 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 14 again
+02:53 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 15 again
+02:53 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+02:54 [1mweak_greedy[0m: Estimating errors ...
+02:54 [1mweak_greedy[0m: Maximum error after 4 extensions: 0.10484718254265141 (mu = {mu: [5.0]})
+02:54 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [5.0]} ...
+02:54 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [5.0]} ...
+02:55 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+02:55 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 4 again
+02:55 |   [1mRBSurrogate[0m: Reducing ...
+02:56 |   |   [1mResidualReductor[0m: Estimating residual range ...
+02:56 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 4 ...
+02:57 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+02:58 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 16 again
+02:58 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 17 again
+02:58 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 18 again
+02:59 |   |   |   |   [1mgram_schmidt[0m: Removing linearly dependent vector 19
+02:59 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+02:59 [1mweak_greedy[0m: Estimating errors ...
+02:59 [1mweak_greedy[0m: Maximum error after 5 extensions: 0.05923721776598045 (mu = {mu: [0.40816326530612246]})
+02:59 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [0.40816326530612246]} ...
+02:59 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [0.40816326530612246]} ...
+03:00 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+03:00 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 5 again
+03:00 |   [1mRBSurrogate[0m: Reducing ...
+03:01 |   |   [1mResidualReductor[0m: Estimating residual range ...
+03:01 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 5 ...
+03:03 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+03:03 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 19 again
+03:03 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 20 again
+03:04 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 21 again
+03:04 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 22 again
+03:04 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+03:05 [1mweak_greedy[0m: Estimating errors ...
+03:05 [1mweak_greedy[0m: Maximum error after 6 extensions: 0.03259962581451844 (mu = {mu: [0.8163265306122449]})
+03:05 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [0.8163265306122449]} ...
+03:05 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [0.8163265306122449]} ...
+03:06 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+03:06 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 6 again
+03:06 |   [1mRBSurrogate[0m: Reducing ...
+03:06 |   |   [1mResidualReductor[0m: Estimating residual range ...
+03:06 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 6 ...
+03:08 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+03:09 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 23 again
+03:09 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 24 again
+03:09 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 25 again
+03:10 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 26 again
+03:10 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+03:11 [1mweak_greedy[0m: Estimating errors ...
+03:11 [1mweak_greedy[0m: Maximum error after 7 extensions: 0.014522966903303671 (mu = {mu: [2.7551020408163267]})
+03:11 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [2.7551020408163267]} ...
+03:11 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [2.7551020408163267]} ...
+03:12 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+03:12 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 7 again
+03:12 |   [1mRBSurrogate[0m: Reducing ...
+03:12 |   |   [1mResidualReductor[0m: Estimating residual range ...
+03:12 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 7 ...
+03:14 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+03:15 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 27 again
+03:15 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 28 again
+03:16 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 29 again
+03:16 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 30 again
+03:16 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+03:17 [1mweak_greedy[0m: Estimating errors ...
+03:17 [1mweak_greedy[0m: Maximum error after 8 extensions: 0.010109952521238134 (mu = {mu: [3.5714285714285716]})
+03:17 [1mweak_greedy[0m: Extending surrogate for mu = {mu: [3.5714285714285716]} ...
+03:17 |   [1mRBSurrogate[0m: Computing solution snapshot for mu = {mu: [3.5714285714285716]} ...
+03:18 |   [1mRBSurrogate[0m: Extending basis with solution snapshot ...
+03:18 |   |   [1mgram_schmidt[0m: Orthonormalizing vector 8 again
+03:18 |   [1mRBSurrogate[0m: Reducing ...
+03:19 |   |   [1mResidualReductor[0m: Estimating residual range ...
+03:19 |   |   |   [1mestimate_image_hierarchical[0m: Estimating image for basis vector 8 ...
+03:21 |   |   |   [1mestimate_image_hierarchical[0m: Orthonormalizing ...
+03:21 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 31 again
+03:21 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 32 again
+03:22 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 33 again
+03:23 |   |   |   |   [1mgram_schmidt[0m: Orthonormalizing vector 34 again
+03:23 |   |   [1mResidualReductor[0m: Projecting residual operator ...
+      
+03:24 [1mweak_greedy[0m: Estimating errors ...
+03:24 [1mweak_greedy[0m: Maximum error after 9 extensions: 0.0038027943780530736 (mu = {mu: [2.4489795918367347]})
+03:24 [1mweak_greedy[0m: Absolute error tolerance (0.01) reached! Stoping extension loop.
+03:24 [1mweak_greedy[0m: Greedy search took 49.18547839857638 seconds
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.48979592], 
+                [1.12244898], 
+                [1.93877551], 
+                [5.], 
+                [0.40816327], 
+                [0.81632653], 
+                [2.75510204], 
+                [3.57142857], 
+                [2.44897959], 
+                
+   with errors: 0.542975985391, 
+                1.309575235150, 
+                0.548060703222, 
+                0.141635677757, 
+                0.104847182543, 
+                0.059237217766, 
+                0.032599625815, 
+                0.014522966903, 
+                0.010109952521, 
+                0.003802794378, 
+                
+    extensions: 10
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+  [2.75398951]
+  [3.54073911]
+  [1.45452369]
+  [2.55413803]
+  [4.46473477]
+  [4.48146544]
+  [0.62792655]
+  [1.03621439]
+  [0.25733602]
+  [2.20404922]
+
+Executing online FEM took 0.76305s
+Executing online FEM took 0.74797s
+Executing online FEM took 0.74243s
+Executing online FEM took 0.74916s
+Executing online FEM took 0.74598s
+Executing online FEM took 0.74330s
+Executing online FEM took 0.74677s
+Executing online FEM took 0.74964s
+Executing online FEM took 0.75120s
+Executing online FEM took 0.74116s
+
+Computing reference LOD ...
+       --> Executing online step 1 LOD took 0.48068s
+       --> Executing online step 1 LOD took 0.45842s
+       --> Executing online step 1 LOD took 0.42560s
+       --> Executing online step 1 LOD took 0.43070s
+       --> Executing online step 1 LOD took 0.42575s
+       --> Executing online step 1 LOD took 0.42099s
+       --> Executing online step 1 LOD took 0.43287s
+       --> Executing online step 1 LOD took 0.42323s
+       --> Executing online step 1 LOD took 0.44870s
+       --> Executing online step 1 LOD took 0.44145s
+
+Computing stage 1 henning RBLOD ...
+       --> Executing online step 1 RBLOD took 0.18482s
+       --> Executing online step 1 RBLOD took 0.17536s
+       --> Executing online step 1 RBLOD took 0.18259s
+       --> Executing online step 1 RBLOD took 0.17027s
+       --> Executing online step 1 RBLOD took 0.17327s
+       --> Executing online step 1 RBLOD took 0.17325s
+       --> Executing online step 1 RBLOD took 0.17268s
+       --> Executing online step 1 RBLOD took 0.17425s
+       --> Executing online step 1 RBLOD took 0.17351s
+       --> Executing online step 1 RBLOD took 0.17427s
+
+Computing TSRBLOD ...
+       --> Executing online resmin TSRBLOD took 0.00034s
+       --> Executing online resmin TSRBLOD took 0.00032s
+       --> Executing online resmin TSRBLOD took 0.00031s
+       --> Executing online resmin TSRBLOD took 0.00031s
+       --> Executing online resmin TSRBLOD took 0.00031s
+       --> Executing online resmin TSRBLOD took 0.00032s
+       --> Executing online resmin TSRBLOD took 0.00031s
+       --> Executing online resmin TSRBLOD took 0.00032s
+       --> Executing online resmin TSRBLOD took 0.00031s
+       --> Executing online resmin TSRBLOD took 0.00033s
+
+SIZES OF THE ROMS 
+total size of henning stage 1:       8718 (all succeeded)
+average size of henning stage 1:     8.513671875
+total size of TSRBLOD stage 1:       6134 (all succeeded)
+average size of TSRBLOD stage 1:     23.9609375
+size of new two scale rom:           9 (succeeded)
+
+TIMINGS OFFLINE 
+total time of parallel henning stage 1:     56.301 seconds
+average time of single henning stage 1:     39.949 seconds
+total time of parallel two-scale stage 1:   102.780 seconds
+average time of single TSRBLOD stage 1:     61.040 seconds
+total time of certified two-scale stage 2:  56.185 seconds
+total time of TSRBLOD                       158.965 seconds
+
+COMPARE ONLINE TIMINGS 
+time for FEM:                       0.73807 seconds
+time for PG-LOD                     0.49065 seconds
+time for henning RBLOD              0.22723 seconds --> speed-up: 2.159
+time for TSRBLOD                    0.00022 seconds --> speed-up: 2245.999
+time for residual min TSRBLOD       0.00032 seconds --> speed-up: 1536.168
+
+Additional information on henning RB: 
+Step 1: Assembly of all K_i parts:  0.17543 seconds
+Step 2: Assembly of global Kms:     0.04855 seconds
+Step 3: Solve the coarse system:    0.00325 seconds
+In total:                           0.22723 seconds
+
+ ***************************************************** 
+
+MAX Estimator values 
+
+Maximal certified estimator value:   0.003218803951
+Maximal fine estimator value:        0.003215153064
+Maximal coarse estimator value:      0.000153263334
+
+ ***************************************************** 
+
+MAX RELATIVE ENERGY ERRORS 
+
+relative energy error of henning RBLOD vs coarse LOD:    0.000042900708 
+relative energy error of res TSRBLOD vs coarse LOD:      0.000246838642 
+relative energy error of TSRBLOD vs coarse LOD:          0.000305868196 
+
+relative energy error of fine LOD vs FEM:                0.031973985183 
+relative energy error of fine RBLOD vs FEM:              0.031975660255 
+relative energy error of fine TSRBLOD vs FEM:            0.031978743999 
+
+ ***************************************************** 
+
+MAX RELATIVE H1 ERRORS 
+
+relative h1 error of henning RBLOD vs coarse LOD:    0.000050852993 
+relative h1 error of res TSRBLOD vs coarse LOD:      0.000293829232 
+relative h1 error of TSRBLOD vs coarse LOD:          0.000323539081 
+
+relative h1 error of fine LOD vs FEM:                0.037339607901 
+relative h1 error of fine RBLOD vs FEM:              0.037341288162 
+relative h1 error of fine TSRBLOD vs FEM:            0.037346562312 
+
+ ***************************************************** 
+
+MAX RELATIVE L2 ERRORS 
+
+relative l2 error of henning RBLOD vs coarse LOD:    0.000006771048 
+relative l2 error of res TSRBLOD vs coarse LOD:      0.000103743241 
+relative l2 error of TSRBLOD vs coarse LOD:          0.000210838088 
+
+relative l2 error of henning RBLOD vs FEM:           0.009052057815 
+relative l2 error of res TSRBLOD vs FEM:             0.009052950020 
+relative l2 error of TSRBLOD vs FEM:                 0.009051099692 
+relative l2 error of coarse LOD vs FEM:              0.009052240167 

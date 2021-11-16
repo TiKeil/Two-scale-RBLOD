@@ -1,0 +1,2446 @@
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 1
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                
+   with errors: 0.542975985391, 
+                
+    extensions: 1
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.205836632
+maximum coarse error        : 0.013304715
+maximum estimator           : 1.309575235
+maximum full effectivity    : 7.129060942
+maximum fine error          : 0.205562877
+maximum fine estimator      : 1.308026928
+maximum coarse estimator    : 0.064086520
+
+maximum h1 full error       : 0.107191210
+maximum h1 coarse error     : 0.008191220
+maximum h1 estimator        : 1.701232057
+maximum h1 full effectivity : 21.208867957
+maximum h1 fine error       : 0.107024416
+maximum h1 fine estimator   : 1.699220695
+maximum h1 coarse estimator : 0.083252981
+maximum a  coarse error     : 0.011672647
+
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 2
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                
+    extensions: 2
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.116942064
+maximum coarse error        : 0.009511016
+maximum estimator           : 0.538279469
+maximum full effectivity    : 7.365668858
+maximum fine error          : 0.116615920
+maximum fine estimator      : 0.537276580
+maximum coarse estimator    : 0.032843009
+
+maximum h1 full error       : 0.082766975
+maximum h1 coarse error     : 0.006230694
+maximum h1 estimator        : 0.699263596
+maximum h1 full effectivity : 22.636332082
+maximum h1 fine error       : 0.082532118
+maximum h1 fine estimator   : 0.697960771
+maximum h1 coarse estimator : 0.042665422
+maximum a  coarse error     : 0.008727740
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 3
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                
+    extensions: 3
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.029731043
+maximum coarse error        : 0.002811348
+maximum estimator           : 0.143527566
+maximum full effectivity    : 6.982458007
+maximum fine error          : 0.029610656
+maximum fine estimator      : 0.143082990
+maximum coarse estimator    : 0.012154224
+
+maximum h1 full error       : 0.021414717
+maximum h1 coarse error     : 0.001691327
+maximum h1 estimator        : 0.186452591
+maximum h1 full effectivity : 19.731535048
+maximum h1 fine error       : 0.021347822
+maximum h1 fine estimator   : 0.185875055
+maximum h1 coarse estimator : 0.015789207
+maximum a  coarse error     : 0.002672818
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 4
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                
+    extensions: 4
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.018786135
+maximum coarse error        : 0.001041878
+maximum estimator           : 0.129353986
+maximum full effectivity    : 6.885609150
+maximum fine error          : 0.018774024
+maximum fine estimator      : 0.129252936
+maximum coarse estimator    : 0.005207466
+
+maximum h1 full error       : 0.009989713
+maximum h1 coarse error     : 0.000366914
+maximum h1 estimator        : 0.168040096
+maximum h1 full effectivity : 19.148188825
+maximum h1 fine error       : 0.009984465
+maximum h1 fine estimator   : 0.167908824
+maximum h1 coarse estimator : 0.006764871
+maximum a  coarse error     : 0.000756053
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 5
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                
+    extensions: 5
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.013858503
+maximum coarse error        : 0.000695951
+maximum estimator           : 0.096122047
+maximum full effectivity    : 7.333056748
+maximum fine error          : 0.013853923
+maximum fine estimator      : 0.096103375
+maximum coarse estimator    : 0.002802488
+
+maximum h1 full error       : 0.008662462
+maximum h1 coarse error     : 0.000345571
+maximum h1 estimator        : 0.124869425
+maximum h1 full effectivity : 22.514555071
+maximum h1 fine error       : 0.008660334
+maximum h1 fine estimator   : 0.124845170
+maximum h1 coarse estimator : 0.003640633
+maximum a  coarse error     : 0.000581116
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 6
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                
+    extensions: 6
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.012416870
+maximum coarse error        : 0.000706776
+maximum estimator           : 0.091427914
+maximum full effectivity    : 7.363201327
+maximum fine error          : 0.012407552
+maximum fine estimator      : 0.091368609
+maximum coarse estimator    : 0.003292533
+
+maximum h1 full error       : 0.007264060
+maximum h1 coarse error     : 0.000262737
+maximum h1 estimator        : 0.118771411
+maximum h1 full effectivity : 22.822894643
+maximum h1 fine error       : 0.007259307
+maximum h1 fine estimator   : 0.118694369
+maximum h1 coarse estimator : 0.004277236
+maximum a  coarse error     : 0.000480948
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 7
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                
+    extensions: 7
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.002668622
+maximum coarse error        : 0.000128829
+maximum estimator           : 0.013125357
+maximum full effectivity    : 6.471238842
+maximum fine error          : 0.002667965
+maximum fine estimator      : 0.013122977
+maximum coarse estimator    : 0.000361567
+
+maximum h1 full error       : 0.001766046
+maximum h1 coarse error     : 0.000046994
+maximum h1 estimator        : 0.017050779
+maximum h1 full effectivity : 16.525648946
+maximum h1 fine error       : 0.001765689
+maximum h1 fine estimator   : 0.017047687
+maximum h1 coarse estimator : 0.000469702
+maximum a  coarse error     : 0.000074572
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 8
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                
+    extensions: 8
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.002635502
+maximum coarse error        : 0.000122894
+maximum estimator           : 0.012644495
+maximum full effectivity    : 6.566019043
+maximum fine error          : 0.002635029
+maximum fine estimator      : 0.012642855
+maximum coarse estimator    : 0.000210742
+
+maximum h1 full error       : 0.001777265
+maximum h1 coarse error     : 0.000030860
+maximum h1 estimator        : 0.016426105
+maximum h1 full effectivity : 16.971519249
+maximum h1 fine error       : 0.001777007
+maximum h1 fine estimator   : 0.016423975
+maximum h1 coarse estimator : 0.000273769
+maximum a  coarse error     : 0.000050327
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 9
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                
+    extensions: 9
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000740098
+maximum coarse error        : 0.000045151
+maximum estimator           : 0.002991285
+maximum full effectivity    : 6.626142812
+maximum fine error          : 0.000739235
+maximum fine estimator      : 0.002990870
+maximum coarse estimator    : 0.000153361
+
+maximum h1 full error       : 0.000600477
+maximum h1 coarse error     : 0.000023375
+maximum h1 estimator        : 0.003885893
+maximum h1 full effectivity : 17.324954135
+maximum h1 fine error       : 0.000600022
+maximum h1 fine estimator   : 0.003885355
+maximum h1 coarse estimator : 0.000199226
+maximum a  coarse error     : 0.000035721
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 10
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                
+    extensions: 10
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000544325
+maximum coarse error        : 0.000029559
+maximum estimator           : 0.002984935
+maximum full effectivity    : 6.624813707
+maximum fine error          : 0.000543989
+maximum fine estimator      : 0.002984473
+maximum coarse estimator    : 0.000119555
+
+maximum h1 full error       : 0.000384660
+maximum h1 coarse error     : 0.000013140
+maximum h1 estimator        : 0.003877645
+maximum h1 full effectivity : 17.311608302
+maximum h1 fine error       : 0.000384550
+maximum h1 fine estimator   : 0.003877044
+maximum h1 coarse estimator : 0.000155311
+maximum a  coarse error     : 0.000023204
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 11
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                
+    extensions: 11
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000462040
+maximum coarse error        : 0.000022378
+maximum estimator           : 0.002913277
+maximum full effectivity    : 6.658917543
+maximum fine error          : 0.000461952
+maximum fine estimator      : 0.002912689
+maximum coarse estimator    : 0.000072419
+
+maximum h1 full error       : 0.000299412
+maximum h1 coarse error     : 0.000009152
+maximum h1 estimator        : 0.003784555
+maximum h1 full effectivity : 17.579663362
+maximum h1 fine error       : 0.000299366
+maximum h1 fine estimator   : 0.003783792
+maximum h1 coarse estimator : 0.000094077
+maximum a  coarse error     : 0.000014923
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 12
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                
+    extensions: 12
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000412770
+maximum coarse error        : 0.000019830
+maximum estimator           : 0.002555585
+maximum full effectivity    : 6.556560886
+maximum fine error          : 0.000412653
+maximum fine estimator      : 0.002554822
+maximum coarse estimator    : 0.000062428
+
+maximum h1 full error       : 0.000235660
+maximum h1 coarse error     : 0.000004880
+maximum h1 estimator        : 0.003319888
+maximum h1 full effectivity : 17.118353132
+maximum h1 fine error       : 0.000235610
+maximum h1 fine estimator   : 0.003318897
+maximum h1 coarse estimator : 0.000081099
+maximum a  coarse error     : 0.000010183
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 13
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                
+    extensions: 13
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340196
+maximum coarse error        : 0.000012628
+maximum estimator           : 0.001619900
+maximum full effectivity    : 6.475931924
+maximum fine error          : 0.000340194
+maximum fine estimator      : 0.001619899
+maximum coarse estimator    : 0.000008881
+
+maximum h1 full error       : 0.000229297
+maximum h1 coarse error     : 0.000001362
+maximum h1 estimator        : 0.002104366
+maximum h1 full effectivity : 16.954854572
+maximum h1 fine error       : 0.000229296
+maximum h1 fine estimator   : 0.002104365
+maximum h1 coarse estimator : 0.000011538
+maximum a  coarse error     : 0.000002021
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 14
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                
+    extensions: 14
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340190
+maximum coarse error        : 0.000012625
+maximum estimator           : 0.001619876
+maximum full effectivity    : 6.483625325
+maximum fine error          : 0.000340188
+maximum fine estimator      : 0.001619875
+maximum coarse estimator    : 0.000008243
+
+maximum h1 full error       : 0.000229289
+maximum h1 coarse error     : 0.000001363
+maximum h1 estimator        : 0.002104335
+maximum h1 full effectivity : 17.021102305
+maximum h1 fine error       : 0.000229287
+maximum h1 fine estimator   : 0.002104334
+maximum h1 coarse estimator : 0.000010709
+maximum a  coarse error     : 0.000002027
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 15
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                
+    extensions: 15
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340066
+maximum coarse error        : 0.000012624
+maximum estimator           : 0.001619153
+maximum full effectivity    : 6.483002430
+maximum fine error          : 0.000340064
+maximum fine estimator      : 0.001619152
+maximum coarse estimator    : 0.000007220
+
+maximum h1 full error       : 0.000229243
+maximum h1 coarse error     : 0.000000965
+maximum h1 estimator        : 0.002103396
+maximum h1 full effectivity : 17.021541178
+maximum h1 fine error       : 0.000229242
+maximum h1 fine estimator   : 0.002103395
+maximum h1 coarse estimator : 0.000009379
+maximum a  coarse error     : 0.000001677
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 16
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                
+    extensions: 16
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340056
+maximum coarse error        : 0.000012623
+maximum estimator           : 0.001619044
+maximum full effectivity    : 6.477027190
+maximum fine error          : 0.000340054
+maximum fine estimator      : 0.001619043
+maximum coarse estimator    : 0.000004308
+
+maximum h1 full error       : 0.000229245
+maximum h1 coarse error     : 0.000000768
+maximum h1 estimator        : 0.002103254
+maximum h1 full effectivity : 17.024700606
+maximum h1 fine error       : 0.000229244
+maximum h1 fine estimator   : 0.002103253
+maximum h1 coarse estimator : 0.000005596
+maximum a  coarse error     : 0.000001171
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 17
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                
+    extensions: 17
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340007
+maximum coarse error        : 0.000012608
+maximum estimator           : 0.001618832
+maximum full effectivity    : 6.482799619
+maximum fine error          : 0.000340005
+maximum fine estimator      : 0.001618832
+maximum coarse estimator    : 0.000007923
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000753
+maximum h1 estimator        : 0.002102979
+maximum h1 full effectivity : 17.031217127
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102979
+maximum h1 coarse estimator : 0.000010292
+maximum a  coarse error     : 0.000001445
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 18
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                
+    extensions: 18
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340006
+maximum coarse error        : 0.000012607
+maximum estimator           : 0.001618806
+maximum full effectivity    : 6.481894302
+maximum fine error          : 0.000340004
+maximum fine estimator      : 0.001618806
+maximum coarse estimator    : 0.000001845
+
+maximum h1 full error       : 0.000229216
+maximum h1 coarse error     : 0.000000747
+maximum h1 estimator        : 0.002102946
+maximum h1 full effectivity : 17.040984672
+maximum h1 fine error       : 0.000229215
+maximum h1 fine estimator   : 0.002102946
+maximum h1 coarse estimator : 0.000002397
+maximum a  coarse error     : 0.000001124
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 19
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                [1.32653061], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                0.000001844937, 
+                
+    extensions: 19
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340005
+maximum coarse error        : 0.000012605
+maximum estimator           : 0.001618797
+maximum full effectivity    : 6.481905020
+maximum fine error          : 0.000340003
+maximum fine estimator      : 0.001618797
+maximum coarse estimator    : 0.000001591
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000746
+maximum h1 estimator        : 0.002102934
+maximum h1 full effectivity : 17.043577311
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102934
+maximum h1 coarse estimator : 0.000002067
+maximum a  coarse error     : 0.000001123
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 20
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                [1.32653061], 
+                [3.06122449], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                0.000001844937, 
+                0.000001590761, 
+                
+    extensions: 20
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340005
+maximum coarse error        : 0.000012605
+maximum estimator           : 0.001618799
+maximum full effectivity    : 6.478519232
+maximum fine error          : 0.000340003
+maximum fine estimator      : 0.001618799
+maximum coarse estimator    : 0.000000897
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000746
+maximum h1 estimator        : 0.002102936
+maximum h1 full effectivity : 17.042180405
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102936
+maximum h1 coarse estimator : 0.000001165
+maximum a  coarse error     : 0.000001123
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 21
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                [1.32653061], 
+                [3.06122449], 
+                [3.7755102], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                0.000001844937, 
+                0.000001590761, 
+                0.000000896944, 
+                
+    extensions: 21
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340005
+maximum coarse error        : 0.000012605
+maximum estimator           : 0.001618796
+maximum full effectivity    : 6.482240660
+maximum fine error          : 0.000340003
+maximum fine estimator      : 0.001618796
+maximum coarse estimator    : 0.000000279
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000746
+maximum h1 estimator        : 0.002102933
+maximum h1 full effectivity : 17.043289732
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102932
+maximum h1 coarse estimator : 0.000000363
+maximum a  coarse error     : 0.000001123
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 22
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                [1.32653061], 
+                [3.06122449], 
+                [3.7755102], 
+                [3.26530612], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                0.000001844937, 
+                0.000001590761, 
+                0.000000896944, 
+                0.000000279246, 
+                
+    extensions: 22
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340005
+maximum coarse error        : 0.000012605
+maximum estimator           : 0.001618799
+maximum full effectivity    : 6.482246723
+maximum fine error          : 0.000340003
+maximum fine estimator      : 0.001618799
+maximum coarse estimator    : 0.000000216
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000746
+maximum h1 estimator        : 0.002102935
+maximum h1 full effectivity : 17.043359221
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102935
+maximum h1 coarse estimator : 0.000000280
+maximum a  coarse error     : 0.000001123
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 23
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                [1.32653061], 
+                [3.06122449], 
+                [3.7755102], 
+                [3.26530612], 
+                [2.04081633], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                0.000001844937, 
+                0.000001590761, 
+                0.000000896944, 
+                0.000000279246, 
+                0.000000215597, 
+                
+    extensions: 23
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340005
+maximum coarse error        : 0.000012605
+maximum estimator           : 0.001618800
+maximum full effectivity    : 6.482690111
+maximum fine error          : 0.000340003
+maximum fine estimator      : 0.001618800
+maximum coarse estimator    : 0.000000209
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000745
+maximum h1 estimator        : 0.002102938
+maximum h1 full effectivity : 17.043357847
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102938
+maximum h1 coarse estimator : 0.000000271
+maximum a  coarse error     : 0.000001122
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 24
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                [1.32653061], 
+                [3.06122449], 
+                [3.7755102], 
+                [3.26530612], 
+                [2.04081633], 
+                [4.48979592], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                0.000001844937, 
+                0.000001590761, 
+                0.000000896944, 
+                0.000000279246, 
+                0.000000215597, 
+                0.000000208835, 
+                
+    extensions: 24
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340005
+maximum coarse error        : 0.000012605
+maximum estimator           : 0.001618798
+maximum full effectivity    : 6.481191592
+maximum fine error          : 0.000340003
+maximum fine estimator      : 0.001618798
+maximum coarse estimator    : 0.000000103
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000746
+maximum h1 estimator        : 0.002102934
+maximum h1 full effectivity : 17.043551473
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102934
+maximum h1 coarse estimator : 0.000000133
+maximum a  coarse error     : 0.000001123
+________________________________________________________
+		
+		      END OF JOB
+________________________________________________________
+		      
+Using MPI parallel run, make sure to use mpirun.
+also show the behavior of the estimator
+use the coarse estimator instead of the certified for the two-scale model
+
+STARTING SCRIPT ...
+
+Coarse FEM mesh:            16 x 16
+Fine FEM mesh:              256 x 256
+k:                          3
+|log H|:                    2.43
+number of fine dofs         66049
+max fine dofs per patch:    12544
+number of parallel kernels: 32 
+
+GREEDY TOLERANCES: 
+Stage 1:   0.001
+Two-scale: 1e-16
+
+Extend two-scale until: 25
+
+Training set size per dimension:     50
+prepare patches ... 
+
+computing contrast ... 
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+ ... splitting processes into 8 (parallel) subprocesses
+
+............ BUILDING RB Models for Corrector Problems...........
+ 
+............ BUILDING TWO SCALE RBLOD PROBLEM ...........
+
+contrast: 13.02921882188321,   min_alpha: 0.5925619923431722
+
+..... REDUCTOR WITH CERTIFIED ERROR ESTIMATOR ...........
+
+PARAMETERS FOR REDUCTION: 
+
+           mus: [0.], 
+                [4.3877551], 
+                [1.12244898], 
+                [0.40816327], 
+                [3.57142857], 
+                [0.81632653], 
+                [5.], 
+                [1.83673469], 
+                [2.55102041], 
+                [0.10204082], 
+                [0.6122449], 
+                [1.53061224], 
+                [4.69387755], 
+                [3.97959184], 
+                [0.20408163], 
+                [2.34693878], 
+                [1.02040816], 
+                [2.75510204], 
+                [1.32653061], 
+                [3.06122449], 
+                [3.7755102], 
+                [3.26530612], 
+                [2.04081633], 
+                [4.48979592], 
+                [4.18367347], 
+                
+   with errors: 0.542975985391, 
+                0.064086520005, 
+                0.032843009461, 
+                0.012154223528, 
+                0.005207465565, 
+                0.002802488492, 
+                0.003292532812, 
+                0.000361567317, 
+                0.000210741831, 
+                0.000153360531, 
+                0.000119555310, 
+                0.000072418954, 
+                0.000062428247, 
+                0.000008881463, 
+                0.000008243281, 
+                0.000007219879, 
+                0.000004307995, 
+                0.000007922799, 
+                0.000001844937, 
+                0.000001590761, 
+                0.000000896944, 
+                0.000000279246, 
+                0.000000215597, 
+                0.000000208835, 
+                0.000000102598, 
+                
+    extensions: 25
+
+ ... TWO SCALE MODEL COMPLETED ! 
+
+Parameters used for verification:
+
+
+Computing reference LOD ...
+
+Estimator study:
+..................................................
+maximum full error          : 0.000340004
+maximum coarse error        : 0.000012605
+maximum estimator           : 0.001618796
+maximum full effectivity    : 6.481407203
+maximum fine error          : 0.000340003
+maximum fine estimator      : 0.001618796
+maximum coarse estimator    : 0.000000080
+
+maximum h1 full error       : 0.000229213
+maximum h1 coarse error     : 0.000000746
+maximum h1 estimator        : 0.002102932
+maximum h1 full effectivity : 17.043631997
+maximum h1 fine error       : 0.000229212
+maximum h1 fine estimator   : 0.002102932
+maximum h1 coarse estimator : 0.000000103
+maximum a  coarse error     : 0.000001123
