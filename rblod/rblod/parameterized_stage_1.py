@@ -30,7 +30,6 @@ from pymor.parameters.functionals import ProjectionParameterFunctional
 from pymor.reductors.coercive import CoerciveRBReductor
 from pymor.algorithms.greedy import rb_greedy
 from rblod.optimized_rom import OptimizedNumpyModelStage1
-
 """
 STAGE 1
 """
@@ -45,11 +44,11 @@ def build_two_scale_patch_models(patch, aFineCoefficients, coercivity_estimator,
     tic = perf_counter()
     print(".", end="", flush=True)
     aPatch = aFine_Constructor(patch)
+
     m = CorrectorProblem_for_all_rhs(patch, aPatch, aFineCoefficients)
     reductor = CoerciveRBReductor(m, product=m.products["h1"], coercivity_estimator=coercivity_estimator)
     basis = reductor.bases["RB"] if save_correctors else None
     product = m.products["energy"] if certified_estimator_study else None
-    h1_product = m.products["h1"] if certified_estimator_study else None
     greedy_data = rb_greedy(
         m, reductor, training_set=training_set_for_two_scale_stage_1,
         atol=atol_patch, extension_params={"method": "gram_schmidt"}
@@ -71,7 +70,7 @@ def build_two_scale_patch_models(patch, aFineCoefficients, coercivity_estimator,
         return np.array([optimized_rom_minimal, K, walltime])
     else:
         return np.array([optimized_rom_minimal, walltime, source_dim, max_errs, max_err_mus, K,
-                         extension_failed, basis, product, h1_product])
+                         extension_failed, basis, product])
 
 
 def correctors_from_TS_RBLOD_approach(optimized_rom, mu):
@@ -80,7 +79,7 @@ def correctors_from_TS_RBLOD_approach(optimized_rom, mu):
     Note: NOT used for the TSRBLOD, only used for reference if save_correctors is TRUE
     """
     u_roms = []
-    for mu_ in _build_directional_mus(mu):
+    for dof, mu_ in enumerate(_build_directional_mus(mu)):
         u_rom = optimized_rom.solve(mu_)
         u_roms.append(u_rom.to_numpy())
     return u_roms
@@ -99,9 +98,17 @@ def _build_directional_mus(mu):
     return mu_with_canonical_directions
 
 class CorrectorProblem_for_all_rhs(StationaryModel):
-    def __init__(self, patch, aFinePatches, aFineCoefficients):
+    def __init__(self, patch, aFinePatchesFull, aFineCoefficientsFull):
         self.patch = patch
         self.world = patch.world
+
+        #remove irrelevant data
+        aFinePatches, aFineCoefficients = [], []
+        for aFinePatch, coef in zip(aFinePatchesFull, aFineCoefficientsFull):
+            if aFinePatch.any():
+                aFinePatches.append(aFinePatch)
+                aFineCoefficients.append(coef)
+        # aFinePatches, aFineCoefficients = aFinePatchesFull, aFineCoefficientsFull
 
         As, rhsss = zip(*(self._assemble_for_aFine(aFine) for aFine in aFinePatches))
         As_ = [NumpyMatrixOperator(A) for A in As]
@@ -123,14 +130,25 @@ class CorrectorProblem_for_all_rhs(StationaryModel):
 
         Kij_operators = []
         Kij_range = NumpyVectorSpace(4 * patch.NpCoarse)
-        for aPatch in aFinePatches:
+        coefficients = []
+        for aPatch, coefs in zip(aFinePatches, aFineCoefficients):
             csi = lod.computeSeparatedBasisCoarseQuantities(
                 self.patch,
                 [operator.source.zeros().to_numpy().ravel() for i in range(4)],
                 aPatch,
             )
             Kij_operators.append(ConstantOperator(Kij_range.make_array(csi.Kmsij.ravel()), operator.source))
-        self.Kij = LincombOperator(Kij_operators, aFineCoefficients)  # for the two scale matrix
+            coefficients.append(coefs)
+        self.Kij = LincombOperator(Kij_operators, coefficients)  # for the two scale matrix
+        #
+        # for aPatch in aFinePatches:
+        #     csi = lod.computeSeparatedBasisCoarseQuantities(
+        #         self.patch,
+        #         [operator.source.zeros().to_numpy().ravel() for i in range(4)],
+        #         aPatch,
+        #     )
+        #     Kij_operators.append(ConstantOperator(Kij_range.make_array(csi.Kmsij.ravel()), operator.source))
+        # self.Kij = LincombOperator(Kij_operators, aFineCoefficients)  # for the two scale matrix
 
         ### prepare output operator
         outer_operators = []
@@ -190,9 +208,11 @@ class CorrectorProblem_for_all_rhs(StationaryModel):
 
         return APatchFull, bPatchFullList
 
-    def _compute_solution(self, mu=None, **kwargs):
+    def _solve(self, mu=None, **kwargs):
+        # TODO: INITIALLY THIS WAS COMPUTE_SOLUTION needed to be changed for pdeopt
         # NOTE : This function is only used in fom !
-        aFinePatch = sum([aCoef(mu) * aPatch for (aPatch, aCoef) in zip(self.aFinePatches, self.aFineCoefficients)])
+        aFinePatch = sum([aCoef.evaluate(mu) * aPatch if hasattr(aCoef, 'evaluate') else aCoef
+                          for (aPatch, aCoef) in zip(self.aFinePatches, self.aFineCoefficients)])
 
         IPatch = lambda: interp.L2ProjectionPatchMatrix(self.patch, self.world.boundaryConditions)
 
@@ -230,6 +250,7 @@ class CorrectorProblemOutput_for_a_DoF_globalized(Operator):
         for i in range(len(U)):
             u = U[i]
             correctorsList = [u.to_numpy().ravel()]
+            # TODO: check the consequence of this try statement!!!
             csi = lod.computeSingleSeparatedBasisCoarseQuantities(self.patch, correctorsList, self.aPatch)
             Qmsij_to_global = sparse.csc_matrix(
                 (csi.Qmsij.ravel(), (self.rows, np.zeros_like(self.rows))),

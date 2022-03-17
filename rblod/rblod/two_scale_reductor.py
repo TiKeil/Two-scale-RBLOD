@@ -16,16 +16,15 @@
 import numpy as np
 import scipy.sparse as sparse
 
-from pymor.operators.constructions import LincombOperator, VectorOperator
+from pymor.operators.constructions import LincombOperator
 from pymor.operators.interface import Operator
-from pymor.operators.constructions import IdentityOperator
 from pymor.operators.numpy import NumpyMatrixOperator
 from pymor.reductors.coercive import CoerciveRBEstimator
 from pymor.reductors.residual import ResidualReductor
 from pymor.reductors.basic import StationaryRBReductor
 from pymor.vectorarrays.block import BlockVectorSpace
 
-from rblod.two_scale_model import TwoScaleBlockOperator
+from rblod.two_scale_model import TwoScaleBlockOperator, is_equal, SimplifiedBlockColumnOperator
 
 """
 Two scale
@@ -42,57 +41,71 @@ class CoerciveRBReductorForTwoScale(StationaryRBReductor):
         coercivity_estimator=None,
         check_orthonormality=None,
         check_tol=None,
-        train_for="full"
+        train_for="full",
+        residual_operator=None,
+        residual_product=None
     ):
         super().__init__(fom, RB, product, check_orthonormality, check_tol)
         self.__auto_init(locals())
         self.RBsizeT, self.residualT = zip(*(self._unpack_rom(rom_) for rom_ in optimized_romT))
 
-        # res = a * coarse_part + b * fine_part
-        self.residual_operator = self._construct_residual_operator(a=1, b=fom.rho_sqrt)
-        self.residual_rhs = self._construct_residual_rhs(a=1)
-        self.residual_product = self._construct_residual_product()
+        if self.residualT[0] is not None: # then we do not have reductor_type = non_assembled
+            # res = a * coarse_part + b * fine_part
+            if residual_operator is None:
+                self.residual_operator = self._construct_residual_operator(a=1, b=fom.rho_sqrt)
+            self.residual_rhs = self._construct_residual_rhs(a=1)
+            if residual_product is None:
+                self.residual_product = self._construct_residual_product()
 
-        self.full_residual_reductor = ResidualReductor(
-            self.bases["RB"],
-            self.residual_operator,
-            self.residual_rhs,
-            product=self.residual_product,
-            riesz_representatives=True,
-        )
+            self.full_residual_reductor = ResidualReductor(
+                self.bases["RB"],
+                self.residual_operator,
+                self.residual_rhs,
+                product=self.residual_product,
+                riesz_representatives=True,
+            )
 
-        coarse_residual_operator = self._construct_residual_operator(a=1, b=0)
-        coarse_residual_rhs = self._construct_residual_rhs(a=1)
-        self.coarse_residual_reductor = ResidualReductor(
-            self.bases["RB"],
-            coarse_residual_operator,
-            coarse_residual_rhs,
-            product=self.residual_product,
-            riesz_representatives=True,
-        )
+            # coarse_residual_operator = self._construct_residual_operator(a=1, b=0)
+            # coarse_residual_rhs = self._construct_residual_rhs(a=1)
+            # self.coarse_residual_reductor = ResidualReductor(
+            #     self.bases["RB"],
+            #     coarse_residual_operator,
+            #     coarse_residual_rhs,
+            #     product=self.residual_product,
+            #     riesz_representatives=True,
+            # )
+            #
+            # fine_residual_operator = self._construct_residual_operator(a=0, b=fom.rho_sqrt)
+            # fine_residual_rhs = self._construct_residual_rhs(a=0)
+            # self.fine_residual_reductor = ResidualReductor(
+            #     self.bases["RB"],
+            #     fine_residual_operator,
+            #     fine_residual_rhs,
+            #     product=self.residual_product,
+            #     riesz_representatives=True,
+            # )
 
-        fine_residual_operator = self._construct_residual_operator(a=0, b=fom.rho_sqrt)
-        fine_residual_rhs = self._construct_residual_rhs(a=0)
-        self.fine_residual_reductor = ResidualReductor(
-            self.bases["RB"],
-            fine_residual_operator,
-            fine_residual_rhs,
-            product=self.residual_product,
-            riesz_representatives=True,
-        )
-
-        if train_for == 'full':
-            self.residual_reductor = self.full_residual_reductor
-        elif train_for == 'coarse':
-            self.residual_reductor = self.coarse_residual_reductor
+            if train_for == 'full':
+                self.residual_reductor = self.full_residual_reductor
+            elif train_for == 'coarse':
+                self.residual_reductor = self.coarse_residual_reductor
+            else:
+                assert 0, "this cannot happen"
         else:
-            assert 0, "this cannot happen"
+            self.residual_reductor = None
 
     def _unpack_rom(self, rom):
-        return rom.operator_array.shape[1], rom.error_residual
+        if rom.rom is None:
+            return rom.operator_array.shape[1], rom.error_residual
+        else:
+            return rom.operator_array.shape[1], rom.rom.error_estimator.residual
+
+    def extract_op_prod(self):
+        return self.residual_operator, self.residual_product
 
     def reduce(self):
         self._extract_partial_basis()
+        print('reducing reductor')
         return super().reduce()
 
     def _extract_partial_basis(self):
@@ -107,63 +120,83 @@ class CoerciveRBReductorForTwoScale(StationaryRBReductor):
 
     def _construct_residual_operator(self, a, b):
         coefs = self.fom.operator.coefficients
-        DTss = self._extract_D_matrices()
+        DTss, new_range_spaces = self._extract_D_matrices(coefs)
+        range_spaces = [self.fom.operator.operators[0].A.source]
+        range_spaces.extend(new_range_spaces)
+        source_spaces = [self.fom.operator.operators[0].A.source]
+        source_spaces.extend(self.fom.source_spaces)
         operators = []
-        for i, op in enumerate(self.fom.operator.operators):
-            blocks = []
-            DTs = DTss[i]
-            if a == 1:
-                blocks.append(op.blocks[0, :])
-            else:
-                blocks.append(op.blocks[0, :] * a)
+        for i, (op, coef, DTs) in enumerate(zip(self.fom.operator.operators, coefs, DTss)):
+            CT = [None for _ in range(self.fom.NCoarse)]
             for j in range(len(self.RBsizeT)):
-                new_line = [None for j_ in range(len(self.RBsizeT) + 1)]
-                new_line[0] = b * DTs[j]
-                new_line[j + 1] = b * self.residualT[j].operator.operators[i]
-                blocks.append(new_line)
-            operators.append(TwoScaleBlockOperator(np.array(blocks)))
+                for res, coef_ in zip(self.residualT[j].operator.operators, self.residualT[j].operator.coefficients):
+                    if is_equal(coef_, coef):
+                        CT[j] = res
+                        break
+            operators.append(TwoScaleBlockOperator(op.A, op.BT, CT, DTs, a=a, b=b, source_spaces=source_spaces,
+                                                   range_spaces=range_spaces))
         return LincombOperator(operators, coefs)
 
     def _construct_residual_rhs(self, a):
-        rhs_space = self.fom.operator.operators[0].blocks[0, 0].source
-        if a == 1:
-            coarse_rhs = VectorOperator(rhs_space.from_numpy(self.fom.bFree))
+        # blocked rhs
+        if isinstance(self.fom.rhs, LincombOperator):
+            blocks = []
+            for block in self.fom.rhs.operators:
+                coarse_rhs = block.blocks[0]
+                if a == 1:
+                    block_rhs = [coarse_rhs]
+                else:
+                    block_rhs = [coarse_rhs * a]
+                blocks.append(SimplifiedBlockColumnOperator(block_rhs, range=self.residual_operator.range))
+            blocked_rhs = LincombOperator(blocks, self.fom.rhs.coefficients)
         else:
-            coarse_rhs = VectorOperator(rhs_space.from_numpy(self.fom.bFree) * a)
-        blocked_rhs_length = len(self.residual_operator.range.zeros().to_numpy()[0])
-        rhs_as_array = coarse_rhs.as_vector().to_numpy()[0]
-        block_rhs = [rhs for rhs in rhs_as_array]
-        for i in range(blocked_rhs_length - len(rhs_as_array)):
-            block_rhs.append(0)
-        block_rhs = np.array(block_rhs).flatten()
-        blocked_rhs = VectorOperator(self.residual_operator.range.from_numpy(block_rhs))
+            coarse_rhs = self.fom.rhs.blocks[0]
+            if a == 1:
+                block_rhs = [coarse_rhs]
+            else:
+                block_rhs = [coarse_rhs * a]
+            blocked_rhs = SimplifiedBlockColumnOperator(block_rhs, range=self.residual_operator.range)
         return blocked_rhs
 
     def _construct_residual_product(self):
-        blocks = [self.product.blocks[0]]
-        blocks.extend([IdentityOperator(sp) for sp in self.residual_operator.operators[0].range_spaces[1:]])
-        return TrueDiagonalBlockOperator(blocks, True)
+        return TrueDiagonalBlockOperator(self.product.blocks, True, self.residual_operator.operators[0].range_spaces)
 
-    def _extract_D_matrices(self):
+    def _extract_D_matrices(self, coefs):
         DTss = []
-        for i in range(self.fom.affine_components):
+        range_spaces = [None for _ in range(len(self.residualT))]
+        for coef in coefs:
             DTs = []
             for j, residual in enumerate(self.residualT):
+                success = 0
                 rhs = residual.rhs
                 TPrimes = self.fom.TPrimeCoarsepStartIndices[j] + self.fom.TPrimeCoarsepIndexMap
-                Dij = np.zeros((self.fom.NpCoarse, rhs.range.dim))
-                for l in range(4):
-                    TPrime = TPrimes[l]
-                    Dij[TPrime] = rhs.operators[self.fom.affine_components * l + i].matrix.T[0]
-                DTs.append(-NumpyMatrixOperator(sparse.csr_matrix(Dij[self.fom.free])).H)
+                coefs_ = residual.operator.coefficients
+                for i, coef_ in enumerate(coefs_):
+                    if is_equal(coef_, coef):
+                        Dij = np.zeros((self.fom.NpCoarse, rhs.range.dim))
+                        for l in range(4):
+                            TPrime = TPrimes[l]
+                            Dij[TPrime] = rhs.operators[len(coefs_) * l + i].matrix.T[0]
+                        success = 1
+                        break
+                if success:
+                    op = -NumpyMatrixOperator(sparse.csr_matrix(Dij[self.fom.free])).H
+                    DTs.append(op)
+                    if range_spaces[j] == None:
+                        range_spaces[j] = op.range
+                else:
+                    DTs.append(None)
             DTss.append(DTs)
-        return DTss
+        return DTss, range_spaces
 
     def assemble_error_estimator(self):
-        residual = self.residual_reductor.reduce()
-        error_estimator = CoerciveRBEstimator(residual, tuple(self.residual_reductor.residual_range_dims),
-                                        self.coercivity_estimator)
-        return error_estimator
+        if self.residual_reductor is not None:
+            residual = self.residual_reductor.reduce(True)
+            error_estimator = CoerciveRBEstimator(residual, tuple(self.residual_reductor.residual_range_dims),
+                                            self.coercivity_estimator)
+            return error_estimator
+        else:
+            return None
 
     def assemble_full_error_estimator(self):
         residual = self.full_residual_reductor.reduce()
@@ -186,11 +219,12 @@ class CoerciveRBReductorForTwoScale(StationaryRBReductor):
     def assemble_error_estimator_for_subbasis(self, dims):
         return NotImplemented
 
+
 class TrueDiagonalBlockOperator(Operator):
     def _operators(self):
         return NotImplementedError
 
-    def __init__(self, blocks, only_first=False):
+    def __init__(self, blocks, only_first=False, source_spaces=None):
         self.only_first = only_first
         self.blocked_source = True
         self.blocked_range = True
@@ -198,14 +232,8 @@ class TrueDiagonalBlockOperator(Operator):
         assert 1 <= blocks.ndim <= 2
 
         # find source/range spaces for every column/row
-        self.source_spaces = [None for j in range(len(blocks))]
-        self.range_spaces = [None for i in range(len(blocks))]
-        for i, op in enumerate(blocks):
-            if op is not None:
-                assert self.source_spaces[i] is None or op.source == self.source_spaces[i]
-                self.source_spaces[i] = op.source
-                assert self.range_spaces[i] is None or op.range == self.range_spaces[i]
-                self.range_spaces[i] = op.range
+        self.source_spaces = source_spaces
+        self.range_spaces = source_spaces
 
         self.source = BlockVectorSpace(self.source_spaces) if self.blocked_source else self.source_spaces[0]
         self.range = BlockVectorSpace(self.range_spaces) if self.blocked_range else self.range_spaces[0]
@@ -233,19 +261,19 @@ class TrueDiagonalBlockOperator(Operator):
         return self.range.make_array(V_blocks)
 
     def apply_adjoint(self, V, mu=None):
-        return NotImplementedError
+        raise NotImplementedError
 
     def assemble(self, mu=None):
-        return NotImplementedError
+        raise NotImplementedError
 
     def as_range_array(self, mu=None):
-        return NotImplementedError
+        raise NotImplementedError
 
     def as_source_array(self, mu=None):
-        return NotImplementedError
+        raise NotImplementedError
 
     def d_mu(self, parameter, index=0):
-        return NotImplementedError
+        raise NotImplementedError
 
     def apply_inverse(self, V, mu=None, initial_guess=None, least_squares=False):
         assert V in self.range
