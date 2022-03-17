@@ -18,7 +18,7 @@
 In this repository, we provide the code for the numerical experiments in Section 6
 of the paper **"An Online Efficient Two-Scale Reduced Basis Approach for the
 Localized Orthogonal Decomposition"** by Tim Keil and Stephan Rave.
-The preprint is available [here](...).
+The preprint is available [here](https://arxiv.org/abs/2111.08643).
 
 For just taking a look at the experiment outputs and data, you do not need to
 install the software. Just go to `scripts/test_scripts/test_outputs/`,
