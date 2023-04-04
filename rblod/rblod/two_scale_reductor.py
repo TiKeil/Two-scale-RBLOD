@@ -111,7 +111,7 @@ class CoerciveRBReductorForTwoScale(StationaryRBReductor):
     def _extract_partial_basis(self):
         partial_basis = self.bases["RB"].space.subspaces[0].empty()
         for basis in self.bases["RB"]:
-            partial_basis.append(basis._blocks[0])
+            partial_basis.append(basis.blocks[0])
         self.partial_basis = partial_basis
 
     def reconstruct_partial(self, u):
@@ -279,14 +279,14 @@ class TrueDiagonalBlockOperator(Operator):
         assert V in self.range
         assert initial_guess is None or initial_guess in self.source and len(initial_guess) == len(V)
         if self.only_first:
-            U_blocks = [self.blocks[0].apply_inverse(V.block(0), mu=mu,
-                                                     initial_guess=(initial_guess.block(0)
+            U_blocks = [self.blocks[0].apply_inverse(V.blocks[0], mu=mu,
+                                                     initial_guess=(initial_guess.blocks[0]
                                                                     if initial_guess is not None else None),
                                                      least_squares=least_squares)]
-            U_blocks.extend(V._blocks[1:])
+            U_blocks.extend(V.blocks[1:])
         else:
-            U_blocks = [self.blocks[i].apply_inverse(V.block(i), mu=mu,
-                                                     initial_guess=(initial_guess.block(i)
+            U_blocks = [self.blocks[i].apply_inverse(V.blocks[i], mu=mu,
+                                                     initial_guess=(initial_guess.blocks[i]
                                                                     if initial_guess is not None else None),
                                                      least_squares=least_squares)
                         for i in range(self.num_source_blocks)]

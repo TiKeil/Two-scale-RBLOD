@@ -140,14 +140,14 @@ class TwoScaleBlockOperator(Operator):
         # D_T               C_T
         # thus we can reduce the computational cost by only iterating over these matrices leaving the rest untouched.
         V_blocks = [None for i in range(self.num_range_blocks)]
-        V_blocks[0] = self.A.apply(U.block(0))
+        V_blocks[0] = self.A.apply(U.blocks[0])
         for i, (B, C, D) in enumerate(zip(self.BT, self.CT, self.DT), 1):
             if B is not None:
                 assert C is not None and D is not None
-                U_block = U.block(i)
+                U_block = U.blocks[i]
                 # first row
                 V_blocks[0] += B.apply(U_block)
-                V_blocks[i] = D.apply(U.block(0))
+                V_blocks[i] = D.apply(U.blocks[0])
                 V_blocks[i] += C.apply(U_block)
             else:
                 V_blocks[i] = self.range_spaces[i].zeros(len(U))
@@ -218,7 +218,7 @@ class SimplifiedBlockColumnOperator(Operator):
     def apply_adjoint(self, V, mu=None):
         assert V in self.range
         assert self.only_first
-        return self.blocks[0].apply_adjoint(V.block(0), mu=mu)
+        return self.blocks[0].apply_adjoint(V.blocks[0], mu=mu)
 
     def assemble(self, mu=None):
         raise NotImplementedError
@@ -483,12 +483,11 @@ class Two_Scale_Problem(StationaryModel):
 
     def _loop_over_T(self, mu, u_H, TInd):
         TPrimes = self.TPrimeCoarsepStartIndices[TInd] + self.TPrimeCoarsepIndexMap
-        mu_ = {k: v for k, v in mu.items() if k != "basis_coefficients"}
-        mu_["DoFs"] = u_H[TPrimes]
-        u_f = self.optimized_romT[TInd].solve(self.optimized_romT[TInd].parameters.parse(mu_))
+        mu = mu.with_(DoFs=u_H[TPrimes])
+        u_f = self.optimized_romT[TInd].solve(mu)
         return list(u_f.to_numpy()[0])
 
-    def _solve(self, mu=None, **kwargs):
+    def _compute_solution(self, mu=None, **kwargs):
         # for the FOM we do not want to solve the block system because it becomes to expensive
         # thus we split the computations
 
