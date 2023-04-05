@@ -105,7 +105,7 @@ class CoerciveRBReductorForTwoScale(StationaryRBReductor):
 
     def reduce(self):
         self._extract_partial_basis()
-        print('reducing reductor')
+        # print('reducing reductor')
         return super().reduce()
 
     def _extract_partial_basis(self):

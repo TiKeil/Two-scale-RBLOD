@@ -294,27 +294,27 @@ class Two_Scale_Problem(StationaryModel):
 
         if As is None:
             tic_ = time.perf_counter()
-            print('construct A ...' , end='', flush=True)
+            # print('construct A ...' , end='', flush=True)
             self.As = self._extract_A_matrices()
-            print(f' in {time.perf_counter()-tic_:.5f}s')
+            # print(f' in {time.perf_counter()-tic_:.5f}s')
         if BTss is None:
             tic_ = time.perf_counter()
-            print('construct B ...' , end='', flush=True)
+            # print('construct B ...' , end='', flush=True)
             self.BTss, self.source_spaces = self._extract_B_matrices(outputT, coefsT)
-            print(f' in {time.perf_counter()-tic_:.5f}s')
+            # print(f' in {time.perf_counter()-tic_:.5f}s')
         if CTss is None:
             tic_ = time.perf_counter()
-            print('construct C ...' , end='', flush=True)
+            # print('construct C ...' , end='', flush=True)
             self.CTss = self._extract_C_matrices(opT, coefsT)
-            print(f' in {time.perf_counter()-tic_:.5f}s')
+            # print(f' in {time.perf_counter()-tic_:.5f}s')
         if DTss is None:
             tic_ = time.perf_counter()
-            print('construct D ...' , end='', flush=True)
+            # print('construct D ...' , end='', flush=True)
             self.DTss = self._extract_D_matrices(rhsT, coefsT)
-            print(f' in {time.perf_counter()-tic_:.5f}s')
+            # print(f' in {time.perf_counter()-tic_:.5f}s')
 
         tic_ = time.perf_counter()
-        print('constructing block operator ...' , end='', flush=True)
+        # print('constructing block operator ...' , end='', flush=True)
         operators = []
         # find source/range spaces for every column/row before block operator
         range_spaces = [self.As[0].source]
@@ -331,7 +331,8 @@ class Two_Scale_Problem(StationaryModel):
         #     operators.append(EfficientTwoScaleBlockOperator(A, BTs, CTs, DTs,
         #                                            source_spaces=source_spaces,
         #                                            range_spaces=range_spaces))
-        print(f' in {time.perf_counter()-tic_:.5f}s')
+
+        # print(f' in {time.perf_counter()-tic_:.5f}s')
 
         operator = LincombOperator(operators, aFineCoefficients)
 
